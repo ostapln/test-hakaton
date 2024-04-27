@@ -6,7 +6,7 @@ from apps.accounts.api.serializers.auth_serializers import ChangePasswordSeriali
 from rest_framework.generics import UpdateAPIView   
 from rest_framework.permissions import IsAuthenticated   
 from django.contrib.auth import authenticate
-from accounts.services.generate_token import create_jwt_pair_for_user
+from apps.accounts.services.generate_token import create_jwt_pair_for_user
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 class UserLoginView(APIView):
