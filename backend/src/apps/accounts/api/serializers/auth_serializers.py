@@ -38,6 +38,7 @@ class UserAuthSerializer(serializers.ModelSerializer):
             username=validated_data["email"],
             email=validated_data["email"],
             password=validated_data["password"],
+            type=validated_data["type"],
         )
         return user
 
