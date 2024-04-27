@@ -16,6 +16,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
 
     username = models.CharField(_("username"), max_length=150, unique=True)
+    about_me = models.TextField(_("about_me"), blank=True, null=True)
     type = models.CharField(_("Type"), max_length=12, choices=TYPE.choices, blank=False)
     date_added = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)

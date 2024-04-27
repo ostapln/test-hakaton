@@ -10,6 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
             "id",
             "email",
             "username",
+            "about_me",
             "type",
             "date_added",
         ]
