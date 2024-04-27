@@ -1,18 +1,13 @@
-import uuid
-import jwt
 from rest_framework import status
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView    
-from accounts.services import _generate_random_password, _send_email
-from accounts.models import User
-from accounts.api.serializers.auth_serializers import ChangePasswordSerializer, MyTokenObtainPairSerializer, UserAuthSerializer
+from apps.accounts.api.serializers.auth_serializers import ChangePasswordSerializer, MyTokenObtainPairSerializer, UserAuthSerializer
 from rest_framework.generics import UpdateAPIView   
 from rest_framework.permissions import IsAuthenticated   
 from django.contrib.auth import authenticate
 from accounts.services.generate_token import create_jwt_pair_for_user
 from rest_framework_simplejwt.views import TokenObtainPairView
-from django.shortcuts import render
 
 class UserLoginView(APIView):
     def post(self, request: Request):
