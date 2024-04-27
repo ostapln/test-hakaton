@@ -13,10 +13,10 @@ class UserSerializer(serializers.ModelSerializer):
             "about_me",
             "type",
             "date_added",
-            "photo_url"
+            "photo"
         ]
         
-    def get_photo_url(self, obj):
+    def get_photo(self, obj):
         if obj.photo and hasattr(obj.photo, "url"):
             request = self.context.get("request")
             photo_url = obj.photo.url
