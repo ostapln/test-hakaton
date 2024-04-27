@@ -17,6 +17,7 @@ services:
 
   backend:
     container_name: backend
+    restart: on-failure
     build:
       context: . 
       dockerfile: ./docker/backend/Dockerfile
