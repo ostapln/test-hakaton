@@ -34,7 +34,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = _("users")
 
     def __str__(self) -> str:
-        return f'email: {self.email}, llm id : {self.llm_id}'
+        return f'username: {self.username}, email: {self.email}'
     
     
     def parse_name(cls, name: str) -> dict:
