@@ -22,3 +22,7 @@ urlpatterns = [
     path("jwt/verify/", TokenVerifyView.as_view(), name="token-verify"),
     
 ]
+
+router = DefaultRouter()
+
+urlpatterns+= router.urls
