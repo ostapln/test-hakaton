@@ -2,6 +2,9 @@
 ____
 ## **From the Inferno Team**:smiling_imp:
 
-![logo]()
+![assets](assets/logo_team.png)
 
 **Про проект**
+
+
+[def]: logo_team.png
