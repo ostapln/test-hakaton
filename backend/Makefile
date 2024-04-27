@@ -1,7 +1,7 @@
 setup:
 	sudo docker-compose build
-	sudo docker-compose run web python manage.py migrate
-	sudo docker-compose run web python manage.py createsuperuser
+	sudo docker-compose run backend python manage.py migrate
+	sudo docker-compose run backend python manage.py createsuperuser
 
 build:
 	sudo docker-compose build
@@ -13,23 +13,23 @@ stop:
 	sudo docker-compose down
 
 makemigrations:
-	sudo docker-compose run web python manage.py makemigrations
+	sudo docker-compose run backend python manage.py makemigrations
 
 migrate:
-	sudo docker-compose run web python manage.py migrate
+	sudo docker-compose run backend python manage.py migrate
 
 delete_db:
-	sudo docker-compose run web python manage.py flush
-	sudo docker-compose run web python manage.py migrate
+	sudo docker-compose run backend python manage.py flush
+	sudo docker-compose run backend python manage.py migrate
 
 createsuperuser:
-	sudo docker-compose run web python manage.py createsuperuser
+	sudo docker-compose run backend python manage.py createsuperuser
 
 shell:
-	sudo docker-compose run web python manage.py shell
+	sudo docker-compose run backend python manage.py shell
 
 test:
-	sudo docker-compose run web python manage.py test
+	sudo docker-compose run backend python manage.py test
 
 clean:
 	sudo docker-compose down -v
@@ -38,10 +38,10 @@ format:
 	black src/ --config utils/black.toml
 
 docker_format:
-	sudo docker-compose run web black src/ --config utils/black.toml
+	sudo docker-compose run backend black src/ --config utils/black.toml
 
 dumpdata:
-	sudo docker-compose run web python manage.py dumpdata > alldata.json
+	sudo docker-compose run backend python manage.py dumpdata > alldata.json
 
 stop_redis:
 	sudo systemctl stop redis
