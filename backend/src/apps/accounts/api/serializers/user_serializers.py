@@ -13,4 +13,14 @@ class UserSerializer(serializers.ModelSerializer):
             "about_me",
             "type",
             "date_added",
+            "photo_url"
         ]
+        
+    def get_photo_url(self, obj):
+        if obj.photo and hasattr(obj.photo, "url"):
+            request = self.context.get("request")
+            photo_url = obj.photo.url
+            return request.build_absolute_uri(
+                photo_url
+            )  # Build full URL using the request object
+        return None  
