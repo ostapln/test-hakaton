@@ -12,8 +12,8 @@ services:
       - "80:80"
     volumes:
       - ./src/staticfiles:/app/src/staticfiles
-    depends_on:
-      - backend
+    networks:
+      - app-network
 
   backend:
     container_name: backend
@@ -29,8 +29,8 @@ services:
       bash -c "python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn config.wsgi:application --log-level debug --timeout 240 --bind 0.0.0.0:8000 --reload"
     volumes:
       - .:/app  
-    depends_on:
-      - postgre
+    networks:
+      - app-network
 
   postgre:
     container_name: postgre
@@ -46,6 +46,9 @@ services:
       - 5432
     volumes:
       - ./pg_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+    
 
   redis:
     image: redis:alpine
@@ -57,6 +60,21 @@ services:
     command: redis-server
     volumes:
       - cache:/data
+    networks:
+      - app-network
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
 
 volumes:
   pg_data:
