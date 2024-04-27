@@ -13,3 +13,4 @@ pydotplus==2.0.2
 python-dotenv==1.0.0
 psycopg2-binary==2.9.9
 gunicorn==21.2.0
+pillow==10.3.0 
