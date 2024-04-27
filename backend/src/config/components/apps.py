@@ -16,7 +16,7 @@ THIRD_PARTY = [
 ]
 
 LOCAL_APPS = [
-    # "apps.users",
+    "apps.accounts",
     # "apps.words",
     # "apps.notes",
     # "apps.todo",
