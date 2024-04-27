@@ -11,7 +11,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 
 class UserLoginView(APIView):
     def post(self, request: Request):
-        username = request.data.get("email")
+        username = request.data.get("username")
         password = request.data.get("password")
 
         user = authenticate(username=username, password=password)
