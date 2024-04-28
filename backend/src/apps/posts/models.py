@@ -15,6 +15,8 @@ class Posts(models.Model):
     
     photo = models.ImageField(upload_to='posts', blank=True, null=True, validators=[FileExtensionValidator(['jpg', 'jpeg', 'png'])])
     
+    date_added = models.DateTimeField(auto_now_add=True, null=True)
+    
     class Meta:
         db_table = "users_posts"
         verbose_name = _("post")
