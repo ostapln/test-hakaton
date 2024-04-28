@@ -12,7 +12,9 @@ class Posts(models.Model):
     goal = models.CharField(_("goal"), max_length=128, blank=True, null=False)
     creator_email = models.EmailField(_("creator_email"))
     creator_contact_information = models.CharField(_("creator_contact_information"), blank=True, null=False)
-    
+    monobank_link = models.URLField(_("monobank_link"), blank=True, null=True)
+    now_progress = models.FloatField("now_progress", blank= True, null=True)
+    goal_progress = models.FloatField("goal_progress", blank= True, null=True)
     photo = models.ImageField(upload_to='posts', blank=True, null=True, validators=[FileExtensionValidator(['jpg', 'jpeg', 'png'])])
     
     date_added = models.DateTimeField(auto_now_add=True, null=True)
