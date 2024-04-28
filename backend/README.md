@@ -1,9 +1,19 @@
+# API DOC
+
+swagger
+
+
+
+# Installation
+
+## GIT
+
 ```bash
 sudo apt install git
 ```
-
+```bash
 git clone https://github.com/ostapln/test-hakaton
-
+```
 ---
 
 ## Installing Docker:
@@ -67,5 +77,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
 
+run:
 
+```bash
 docker-compose up -d
+```
