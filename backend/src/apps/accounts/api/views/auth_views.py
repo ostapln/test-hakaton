@@ -33,7 +33,15 @@ class UserLoginView(APIView):
 
 class UserRegistrationView(APIView):
     def post(self, request):
-        serializer = UserAuthSerializer(data=request.data)
+        data = {
+            "username": request.data.get("username"),
+            "email": request.data.get("email"),
+            "password1": request.data.get("password_1"),
+            "password2": request.data.get("password_2"),
+            "type": request.data.get("type"),
+        }
+
+        serializer = UserAuthSerializer(data=data)
 
         if serializer.is_valid():
             user = serializer.save()
