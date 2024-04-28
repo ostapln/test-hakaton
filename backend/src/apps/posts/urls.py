@@ -1,6 +1,6 @@
 from apps.posts.api.views import post_views
 from django.urls import path
-
+from rest_framework.routers import DefaultRouter
 
 urlpatterns = [
     path("create/", post_views.CreatePostView.as_view(), name="create-post"), 
@@ -10,3 +10,7 @@ urlpatterns = [
     path('delete/<int:pk>/', post_views.DeletePostView.as_view(), name='delete-post'), 
     path('update/<int:pk>/', post_views.UpdatePostView.as_view(), name='update-post'),  
 ]
+
+router = DefaultRouter()
+
+urlpatterns+= router.urls
