@@ -25,6 +25,7 @@ API_PATH = "api/v1"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(f'{API_PATH}/users/', include('apps.accounts.urls')),
+    path(f'{API_PATH}/posts/', include('apps.posts.urls')),
     
     path(f'{API_PATH}/swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),  
     path(f'{API_PATH}/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
