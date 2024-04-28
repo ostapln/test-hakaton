@@ -142,7 +142,7 @@ class UserAuthSerializer(serializers.ModelSerializer):
 <p align="center"><img src="assets/changing_needs.png" alt=""></p>
 
 ----
-# Instructions for starting
+# Міні-гайд до запуску проєкту 
 
 
 
@@ -189,9 +189,9 @@ class UserAuthSerializer(serializers.ModelSerializer):
 ---
 
 
-## Contributors
+## Дописувачі
 
-___Thank you so much!___
+___Дуже дякую!___
 
 <a href="https://github.com/ostapln/test-hakaton/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=ostapln/test-hakaton" width="30%"/>
@@ -199,7 +199,7 @@ ___Thank you so much!___
 
 
 
-# Technology stack
+# Стек технологій
 ___
 
 **FRONTEND**
