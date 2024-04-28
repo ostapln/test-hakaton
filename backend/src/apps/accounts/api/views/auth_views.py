@@ -14,10 +14,10 @@ from apps.accounts.services.generate_token import create_jwt_pair_for_user
 
 class UserLoginView(APIView):
     def post(self, request: Request):
-        username = request.data.get("username")
+        email = request.data.get("email")
         password = request.data.get("password")
 
-        user = authenticate(username=username, password=password)
+        user = authenticate(email=email, password=password)
 
         if user is not None:
             return Response(
