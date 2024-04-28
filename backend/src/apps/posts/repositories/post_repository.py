@@ -1,4 +1,5 @@
 from django.db.models import Q
+
 from apps.posts.models import Posts
 
 
@@ -18,6 +19,5 @@ class PostRepository:
     @staticmethod
     def search_posts(query):
         return Posts.objects.filter(
-            Q(title__icontains=query) | 
-            Q(user__username__icontains=query)
+            Q(title__icontains=query) | Q(user__username__icontains=query)
         )
