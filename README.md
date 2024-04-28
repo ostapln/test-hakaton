@@ -86,6 +86,7 @@ ___
 [![HTML](https://img.shields.io/badge/-HTML-E342?logo=html5&style=flat)](https://developer.mozilla.org/en-US/docs/Web/HTML)[![CSS](https://img.shields.io/badge/-CSS-1572B6?logo=css3&style=flat)](https://developer.mozilla.org/en-US/docs/Web/CSS)[![JavaScript](https://img.shields.io/badge/-JavaScript-F7aF1E?logo=javascript&style=flat)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)[![TypeScript](https://img.shields.io/badge/-TypeScript-01CC?logo=typescript&style=flat)](https://www.typescriptlang.org/)[![React](https://img.shields.io/badge/-React-41a?logo=react&style=flat)](https://reactjs.org/)[![Axios](https://img.shields.io/badge/-Axios-1175B2?logo=axios&style=flat)](https://axios-http.com/)
 
 
+
 ---
 **BACKEND**
 
