@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  nginx:
+    container_name: nginx
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"   
+    ports:
+      - "80:80"
+    volumes:
+      - ./src/staticfiles:/app/src/staticfiles
+    networks:
+      - app-network
+
+  backend:
+    container_name: backend
+    restart: on-failure
+    build:
+      context: . 
+      dockerfile: ./docker/backend/Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    working_dir: /app/src
+    command: >
+      bash -c "python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn config.wsgi:application --log-level debug --timeout 240 --bind 0.0.0.0:8000 --reload"
+    volumes:
+      - .:/app  
+    networks:
+      - app-network
+
+  postgre:
+    container_name: postgre
+    image: postgres:14
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    expose:
+      - 5432
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+    
+
+  redis:
+    image: redis:alpine
+    hostname: redis
+    container_name: redis
+    restart: on-failure
+    ports:
+      - '6378:6379'
+    command: redis-server
+    volumes:
+      - cache:/data
+    networks:
+      - app-network
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  pg_data:
+  cache:
