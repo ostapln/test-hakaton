@@ -75,53 +75,11 @@ ___Thank you so much!___
   </a>
 
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- Підключення шрифту -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <style>
-        /* Зміна стилю тексту на білий */
-        h1 {
-            color: white;
-            /* Використання шрифту "Press Start 2P" */
-            font-family: 'Press Start 2P', cursive;
-        }
-    </style>
-</head>
-<body>
-    <!-- Заголовок зі зміненими стилями -->
-    <h1>Technology stack</h1>
-</body>
-</html>
 
+# Technology stack
 ___
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- Підключення шрифту -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <style>
-        /* Зміна стилю тексту на сірий і зменшення розміру вдвічі */
-        h1 {
-            color: #888;
-            /* Розмір шрифту вдвічі менше */
-            font-size: 50%;
-            /* Використання шрифту "Press Start 2P" */
-            font-family: 'Press Start 2P', cursive;
-        }
-    </style>
-</head>
-<body>
-    <!-- Заголовок "frontend" зі зміненими стилями -->
-    <h1>Frontend</h1>
-</body>
-</html>
+**FRONTEND**
 
 
 
@@ -129,30 +87,7 @@ ___
 
 
 ---
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- Підключення шрифту -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <style>
-        /* Зміна стилю тексту на сірий і зменшення розміру вдвічі */
-        h1 {
-            color: #888;
-            /* Розмір шрифту вдвічі менше */
-            font-size: 50%;
-            /* Використання шрифту "Press Start 2P" */
-            font-family: 'Press Start 2P', cursive;
-        }
-    </style>
-</head>
-<body>
-    <!-- Заголовок "frontend" зі зміненими стилями -->
-    <h1>Backend</h1>
-</body>
-</html>
+**BACKEND**
 
 [![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&style=flat)](https://www.python.org/)[![Django](https://img.shields.io/badge/-Django-092E20?logo=django&style=flat)](https://www.djangoproject.com/)[![Django REST Framework](https://img.shields.io/badge/-Django_REST_Framework-FF1709?logo=django&style=flat)](https://www.django-rest-framework.org/)[![Redis](https://img.shields.io/badge/-Redis-DC382D?logo=redis&style=flat)](https://redis.io/)[![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&style=flat)](https://www.docker.com/)[![Nginx](https://img.shields.io/badge/-Nginx-269539?logo=nginx&style=flat)](https://www.nginx.com/)[![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-336791?logo=postgresql&style=flat)](https://www.postgresql.org/)
 
