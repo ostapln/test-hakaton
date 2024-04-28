@@ -59,4 +59,4 @@ clean_cache:
 	sudo docker-compose exec redis redis-cli flushall
 
 load_data:
-	sudo docker-compose run backend python python manage.py loaddata fixtures/fixtures.json
+	sudo docker-compose run backend python manage.py loaddata fixtures/fixtures.json
