@@ -90,7 +90,7 @@ ___
 ---
 **BACKEND**
 
-[![Python](https://img.shields.io/badge/-Python-376AB?logo=python&style=flat-square)](https://www.python.org/)[![Django](https://img.shields.io/badge/-Django-092E20?logo=django&style=flat-square)](https://www.djangoproject.com/)[![Django REST Framework](https://img.shields.io/badge/-Django_REST_Framework-FF1709?logo=django&style=flat-square)](https://www.django-rest-framework.org/)[![Redis](https://img.shields.io/badge/-Redis-CC000?logo=redis&style=flat-square)](https://redis.io/)[![Docker](https://img.shields.io/badge/-Docker-249?logo=docker&style=flat-square)](https://www.docker.com/)[![Nginx](https://img.shields.io/badge/-Nginx-269539?logo=nginx&style=flat-square)](https://www.nginx.com/)[![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-336791?logo=postgresql&style=flat-square)](https://www.postgresql.org/)
+[![Python](https://img.shields.io/badge/-Python-376AB?logo=python&style=flat-square)](https://www.python.org/)[![Django](https://img.shields.io/badge/-Django-092E20?logo=django&style=flat-square)](https://www.djangoproject.com/)[![Django REST Framework](https://img.shields.io/badge/-Django_REST_Framework-FF1709?logo=django&style=flat-square)](https://www.django-rest-framework.org/)[![Redis](https://img.shields.io/badge/-Redis-CC000?logo=redis&style=flat-square)](https://redis.io/)[![Docker](https://img.shields.io/badge/-Docker-249?logo=docker&style=flat-square)](https://www.docker.com/)[![Nginx](https://img.shields.io/badge/-Nginx-269539?logo=nginx&style=flat-square)](https://www.nginx.com/)[![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-332122?logo=postgresql&style=flat-square)](https://www.postgresql.org/)
 
 
 
