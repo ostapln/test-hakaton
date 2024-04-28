@@ -65,3 +65,11 @@
 <p align="center"><img src="assets/needs_help_details.png" alt=""></p>
 
 <p align="center"><img src="assets/changing_needs.png" alt=""></p>
+
+## Contributors
+
+___Thank you so much!___
+
+<a href="https://github.com/ostapln/test-hakaton/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ostapln/test-hakaton" width="30%"/>
+</a>
