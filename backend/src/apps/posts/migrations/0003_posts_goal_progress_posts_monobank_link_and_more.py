@@ -4,25 +4,26 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('posts', '0002_posts_date_added'),
+        ("posts", "0002_posts_date_added"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='posts',
-            name='goal_progress',
-            field=models.FloatField(blank=True, null=True, verbose_name='goal_progress'),
+            model_name="posts",
+            name="goal_progress",
+            field=models.FloatField(
+                blank=True, null=True, verbose_name="goal_progress"
+            ),
         ),
         migrations.AddField(
-            model_name='posts',
-            name='monobank_link',
-            field=models.URLField(blank=True, null=True, verbose_name='monobank_link'),
+            model_name="posts",
+            name="monobank_link",
+            field=models.URLField(blank=True, null=True, verbose_name="monobank_link"),
         ),
         migrations.AddField(
-            model_name='posts',
-            name='now_progress',
-            field=models.FloatField(blank=True, null=True, verbose_name='now_progress'),
+            model_name="posts",
+            name="now_progress",
+            field=models.FloatField(blank=True, null=True, verbose_name="now_progress"),
         ),
     ]

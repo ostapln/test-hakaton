@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('posts', '0003_posts_goal_progress_posts_monobank_link_and_more'),
+        ("posts", "0003_posts_goal_progress_posts_monobank_link_and_more"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='posts',
-            name='goal',
+            model_name="posts",
+            name="goal",
         ),
     ]
