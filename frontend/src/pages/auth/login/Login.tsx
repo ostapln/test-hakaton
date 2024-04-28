@@ -2,8 +2,52 @@
 import Banner from '../../../assets/logo/reg.png';
 import Google from '../../../assets/logo/devicon_google.svg';
 import FaceBook from  '../../../assets/logo/logos_facebook.svg';
+import { ILoginRequest, ILoginResult } from './types';
+import { IAuthUser } from '../../../store/reducers/auth/types';
+import { useFormik } from 'formik';
+import { storeToken } from '../../../services/tokenService';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import http_api from '../../../services/http_api';
+import { useNavigate } from 'react-router-dom';
 const Login =()=>{
-
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const navigator = useNavigate();
+  
+    const request: ILoginRequest = {
+      email: '',
+      password: '',
+    };
+  
+   
+   
+    const {   isAuth } = useSelector((store: any) => store.auth as IAuthUser);
+    const onFormSubmit = async (values: ILoginRequest) => {
+      try {
+        setIsLoading(() => true);
+        const result = (
+          await http_api.post<ILoginResult>('http://198.46.226.156/api/v1/users/signin/', values)
+        ).data;
+      
+       
+       
+        storeToken(result.token);
+        
+        navigator('/');
+      } catch (error) {
+        // handleError(error);
+      } finally {
+        setIsLoading(() => false);
+      }
+    
+    };
+  
+    const formik = useFormik({
+      initialValues: request,
+ 
+      onSubmit: onFormSubmit,
+    });
+    const { values, errors, handleSubmit, handleChange } = formik;
 return(
 
 <>
@@ -21,11 +65,11 @@ return(
             <form className="my-5 max-w-md mx-auto">
          
   <div className="relative z-0 w-full mb-5 group">
-      <input type="email" name="floating_email" id="floating_email" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <input onChange={ handleChange}  type="email" name="floating_email" id="floating_email" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
       <label htmlFor="floating_email" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
   </div>
   <div className="relative z-0 w-full mb-5 group">
-  <input type="password" name="repeat_password" id="floating_repeat_password" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+  <input onChange={ handleChange}  type="password" name="repeat_password" id="floating_repeat_password" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
       <label htmlFor="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">  Пароль</label> </div>
   
   
@@ -36,17 +80,10 @@ return(
   
 
 </form>
-
-<h1 className="text-sm font-medium ">або за допомогою</h1>
-<div className="flex flex-grow items-center absolute left-[70%] top-[610px]">
-      
-<img src={Google} alt="Logo" className="mx-4"/>       <img src={FaceBook} alt="Logo" />
+ 
     
     
-    
-    
-    
-    </div>
+     
 
 
             </div>
