@@ -1,5 +1,6 @@
 from apps.posts.models import Posts
 
+
 class PostRepository:
     @staticmethod
     def get_posts_by_user(user):
@@ -12,5 +13,3 @@ class PostRepository:
     @staticmethod
     def post_exists_by_pk(pk):
         return Posts.objects.filter(pk=pk).exists()
-
- 

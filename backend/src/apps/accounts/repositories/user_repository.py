@@ -1,5 +1,6 @@
 from apps.accounts.models import User
 
+
 class UserRepository:
     @staticmethod
     def user_exists_by_email(email):
