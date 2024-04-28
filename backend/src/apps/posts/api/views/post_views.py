@@ -78,7 +78,7 @@ class UpdatePostView(APIView):
     def patch(self, request, pk):
         post = get_object_or_404(Posts, pk=pk)
 
-        self.check_object_permissions(request, note)
+        self.check_object_permissions(request, post)
         serializer = PostsSerializer(post, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
