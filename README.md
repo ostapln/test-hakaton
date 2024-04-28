@@ -72,4 +72,5 @@ ___Thank you so much!___
 
 <a href="https://github.com/ostapln/test-hakaton/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=ostapln/test-hakaton" width="30%"/>
+  </a>
 
