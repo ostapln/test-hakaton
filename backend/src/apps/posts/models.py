@@ -9,7 +9,6 @@ class Posts(models.Model):
 
     title = models.CharField(_("title"),max_length=128, blank=False, null=False)
     body = models.TextField(_("body"), null=True, blank=True)
-    goal = models.CharField(_("goal"), max_length=128, blank=True, null=False)
     creator_email = models.EmailField(_("creator_email"))
     creator_contact_information = models.CharField(_("creator_contact_information"), blank=True, null=False)
     monobank_link = models.URLField(_("monobank_link"), blank=True, null=True)
