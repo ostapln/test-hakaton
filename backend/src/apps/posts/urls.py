@@ -12,6 +12,7 @@ urlpatterns = [
         name="user-posts-list",
     ),
     path("<int:pk>/", post_views.PostDetailView.as_view(), name="post-detail"),
+    path('search/', post_views.SearchPostsView.as_view(), name='search-posts'),
     path("delete/<int:pk>/", post_views.DeletePostView.as_view(), name="delete-post"),
     path("update/<int:pk>/", post_views.UpdatePostView.as_view(), name="update-post"),
 ]

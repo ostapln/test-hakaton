@@ -66,6 +66,16 @@ class PostDetailView(APIView):
 
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+class SearchPostsView(APIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
+
+    def get(self, request):
+        query = request.query_params.get('search', '')
+        posts = PostRepository.search_posts(query)
+
+        serializer = PostsSerializer(posts, many=True, context={'request': request})
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 class DeletePostView(APIView):
     permission_classes = [IsAuthenticated, IsOwner]
