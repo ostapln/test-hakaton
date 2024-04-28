@@ -141,6 +141,54 @@ class UserAuthSerializer(serializers.ModelSerializer):
 
 <p align="center"><img src="assets/changing_needs.png" alt=""></p>
 
+----
+# Instructions for starting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
 ## Contributors
 
 ___Thank you so much!___
