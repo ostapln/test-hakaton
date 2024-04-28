@@ -14,11 +14,21 @@ class UserAuthSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["email", "password1", "password2"]
+        fields = ["username", "email", "password1", "password2", "type"]
 
     def validate_email(self, value):
         if User.objects.filter(email=value).exists():
             raise serializers.ValidationError("This email is already in use.")
+        return value
+    
+    def validate_username(self, value):
+        if User.objects.filter(username=value).exists():
+            raise serializers.ValidationError("This username is already in use.")
+        return value
+    
+    def validate_type(self, value):
+        if value not in ["assistants", "recipients"]:
+            raise serializers.ValidationError("Type must be assistants or recipients.")
         return value
 
     def validate(self, data):
@@ -34,7 +44,7 @@ class UserAuthSerializer(serializers.ModelSerializer):
         validated_data.pop("password2", None)
 
         user = User.objects.create_user(
-            username=validated_data["email"],
+            username=validated_data["username"],
             email=validated_data["email"],
             password=validated_data["password"],
             type=validated_data["type"],

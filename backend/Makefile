@@ -54,3 +54,6 @@ redis:
 graphviz:
 	sudo apt-get install graphviz
 	echo python3 manage.py graph_models -a -g -o my_project_models.png
+
+clean_cache:
+	sudo docker-compose exec redis redis-cli flushall

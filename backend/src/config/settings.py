@@ -23,6 +23,7 @@ config_files = [
     "database.py",
     "internationalization.py",
     "logging.py",
+    "media.py",
     "middleware.py",
     "smtp.py",
     "static.py",

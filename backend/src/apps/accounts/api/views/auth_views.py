@@ -11,7 +11,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 
 class UserLoginView(APIView):
     def post(self, request: Request):
-        username = request.data.get("email")
+        username = request.data.get("username")
         password = request.data.get("password")
 
         user = authenticate(username=username, password=password)
@@ -33,7 +33,15 @@ class UserLoginView(APIView):
 
 class UserRegistrationView(APIView):
     def post(self, request):
-        serializer = UserAuthSerializer(data=request.data)
+        data = {
+            "username": request.data.get("username"),
+            "email": request.data.get("email"),
+            "password1": request.data.get("password_1"),
+            "password2": request.data.get("password_2"),
+            "type": request.data.get("type"),
+        }
+
+        serializer = UserAuthSerializer(data=data)
 
         if serializer.is_valid():
             user = serializer.save()
@@ -78,4 +86,4 @@ class DeleteUserView(APIView):
     def delete(self, request):
         user = request.user
         user.delete()
-        return Response({'message': 'User successfully deleted.'}, status=status.HTTP_204_NO_CONTENT)
+        return Response({'message': 'User successfully deleted.'}, status=status.HTTP_200_OK)
