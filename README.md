@@ -17,6 +17,81 @@
    * Кнопка зареєструватися
 <p align="center"><img src="assets/SignUp.png" alt=""></p>
 
+```
+
+class UserRegistrationView(APIView):
+    def post(self, request):
+        data = {
+            "username": request.data.get("username"),
+            "email": request.data.get("email"),
+            "password1": request.data.get("password_1"),
+            "password2": request.data.get("password_2"),
+            "type": request.data.get("type"),
+        }
+
+        serializer = UserAuthSerializer(data=data)
+
+        if serializer.is_valid():
+            user = serializer.save()
+
+            return Response(
+                data={
+                    "user_id": str(user.id),
+                    "tokens": create_jwt_pair_for_user(user=user),
+                },
+                status=status.HTTP_201_CREATED,
+            )
+
+        return Response(
+            data={"message": serializer.errors, "status": status.HTTP_400_BAD_REQUEST},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+
+class UserAuthSerializer(serializers.ModelSerializer):
+    password1 = serializers.CharField(max_length=128, write_only=True, required=True)
+    password2 = serializers.CharField(max_length=128, write_only=True, required=True)
+
+    class Meta:
+        model = User
+        fields = ["username", "email", "password1", "password2", "type"]
+
+    def validate_email(self, value):
+        if UserRepository.user_exists_by_email(value):
+            raise serializers.ValidationError("This email is already in use.")
+        return value
+
+    def validate_username(self, value):
+        if UserRepository.user_exists_by_username(value):
+            raise serializers.ValidationError("This username is already in use.")
+        return value
+
+    def validate_type(self, value):
+        if value not in ["assistants", "recipients"]:
+            raise serializers.ValidationError("Type must be assistants or recipients.")
+        return value
+
+    def validate(self, data):
+        if data["password1"] != data["password2"]:
+            raise serializers.ValidationError(
+                {"password2": "Password fields didn't match."}
+            )
+
+        data["password"] = data["password1"]
+        return data
+
+    def create(self, validated_data):
+        # Remove password1 and password2 before creating the user
+        validated_data.pop("password1", None)
+        validated_data.pop("password2", None)
+
+        return UserRepository.create_user(
+            username=validated_data["username"],
+            email=validated_data["email"],
+            password=validated_data["password"],
+            type=validated_data["type"],
+        )
+
+```
 ----
 
 >Сторінка 
