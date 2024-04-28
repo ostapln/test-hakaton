@@ -3,7 +3,7 @@
  [Hackaton test]() силка на сайт.
 
 
-**Всім привіт ми команда __INFERNO TEAM__ ось наш вваріант тестовго завдання на хакатон**:point_down:
+**Всім привіт, ми команда __INFERNO TEAM__ ! Ось наш вваріант тестовго завдання на хакатон**:
 
 ---
 
@@ -17,7 +17,7 @@
    * Кнопка зареєструватися
 <p align="center"><img src="assets/SignUp.png" alt=""></p>
 
-```
+```python
 
 class UserRegistrationView(APIView):
     def post(self, request):
@@ -46,6 +46,10 @@ class UserRegistrationView(APIView):
             data={"message": serializer.errors, "status": status.HTTP_400_BAD_REQUEST},
             status=status.HTTP_400_BAD_REQUEST,
         )
+
+```
+
+```python
 
 class UserAuthSerializer(serializers.ModelSerializer):
     password1 = serializers.CharField(max_length=128, write_only=True, required=True)
@@ -80,7 +84,6 @@ class UserAuthSerializer(serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
-        # Remove password1 and password2 before creating the user
         validated_data.pop("password1", None)
         validated_data.pop("password2", None)
 
@@ -200,7 +203,6 @@ ___Дуже дякую!___
 
 
 # Стек технологій
-___
 
 **FRONTEND**
 
