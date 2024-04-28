@@ -1,8 +1,12 @@
 # API DOC
 
-swagger
+swagger - http://198.46.226.156/api/v1/swagger/
 
+# Database
 
+  <a href="https://github.com/ostapln/test-hakaton/tree/main">
+    <img src="../assets/db.jpg" alt="db">
+  </a>
 
 # Installation
 
