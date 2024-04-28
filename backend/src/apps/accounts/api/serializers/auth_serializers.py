@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from rest_framework.serializers import ValidationError
 from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-
+from apps.accounts.repositories.user_repository import UserRepository
 
 User = get_user_model()
 
@@ -17,12 +17,12 @@ class UserAuthSerializer(serializers.ModelSerializer):
         fields = ["username", "email", "password1", "password2", "type"]
 
     def validate_email(self, value):
-        if User.objects.filter(email=value).exists():
+        if UserRepository.user_exists_by_email(value):
             raise serializers.ValidationError("This email is already in use.")
         return value
     
     def validate_username(self, value):
-        if User.objects.filter(username=value).exists():
+        if UserRepository.user_exists_by_username(value):
             raise serializers.ValidationError("This username is already in use.")
         return value
     
@@ -43,13 +43,13 @@ class UserAuthSerializer(serializers.ModelSerializer):
         validated_data.pop("password1", None)
         validated_data.pop("password2", None)
 
-        user = User.objects.create_user(
+        return UserRepository.create_user(
             username=validated_data["username"],
             email=validated_data["email"],
             password=validated_data["password"],
             type=validated_data["type"],
         )
-        return user
+
 
 class ChangePasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField(required=True)
@@ -70,8 +70,7 @@ class ChangePasswordSerializer(serializers.Serializer):
         return value
 
     def update(self, instance, validated_data):
-        instance.set_password(validated_data['new_password'])
-        instance.save()
+        UserRepository.change_user_password(instance, validated_data['new_password'])
         return instance
     
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
