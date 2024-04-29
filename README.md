@@ -1,6 +1,8 @@
 <p align="center"><img src="assets/logo_team.png" alt=""></p>
 
- [Hackaton test]() силка на сайт.
+ [Hackaton test]() посилання на сайт(на даний момент відсутнє посилання).
+
+ [Swagger](http://198.46.226.156/api/v1/swagger/) посилання на документацію API.
 
 
 **Всім привіт, ми команда __INFERNO TEAM__ ! Ось наш вваріант тестовго завдання на хакатон**:
@@ -18,7 +20,7 @@
       <a href="#міні-гайд-до-запуску-проєкту">запуск проекту</a>
     </li>
     <li>
-      <a href="#іні-гайд-до-запуску-проєкту">запуск проекту</a>
+      <a href="#стек-технологій">стек технологій</a>
     </li>
   </ol>
 </details>
@@ -181,46 +183,24 @@ backend:
     ``` bash
     docker-compose up --build
     ```
+- створіть та заповніть файл .env 
+```
+SECRET_KEY= Your secret Django key
+
+ADMIN_PATH=admin panel url path
+
+ALLOWED_HOSTS=localhost,127.0.0.1(examples)
+
+DEBUG= True/False
+
+POSTGRES_DB= Your Postgres db name
+POSTGRES_USER= Your Postgres db owners name
+POSTGRES_PASSWORD= Your Postgres db owners password
+POSTGRES_HOST= Your Postgres db host (127.0.0.1 for localhost)
+POSTGRES_PORT=Your Postgres db port (5432 default)
+```
+
 проєкт буде доступний на localhost(80 port).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ---
 

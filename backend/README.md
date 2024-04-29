@@ -81,7 +81,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
 
-run:
+
+## Start the project:
 
 ```bash
 docker-compose up -d
